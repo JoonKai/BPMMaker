@@ -456,7 +456,7 @@
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(190, 23);
             this.button10.TabIndex = 1;
-            this.button10.Text = "라인제거";
+            this.button10.Text = "제거";
             this.button10.UseVisualStyleBackColor = true;
             // 
             // button9
@@ -465,7 +465,7 @@
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(190, 23);
             this.button9.TabIndex = 0;
-            this.button9.Text = "라인추가";
+            this.button9.Text = "등록";
             this.button9.UseVisualStyleBackColor = true;
             // 
             // groupBox3
