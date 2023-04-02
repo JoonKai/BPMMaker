@@ -35,6 +35,10 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -48,6 +52,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button14 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -78,17 +86,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
+            this.main_dgv = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -118,22 +118,40 @@
             this.Column27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button10 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.subVendor_dgv = new System.Windows.Forms.DataGridView();
+            this.subVendorDelete_btn = new System.Windows.Forms.Button();
+            this.subVendorUpdate_btn = new System.Windows.Forms.Button();
+            this.subVendorSave_btn = new System.Windows.Forms.Button();
+            this.subVendorProduct_txt = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.subVendorPersonCellPhone_txt = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.subVendorPerson_txt = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.subVendorCode_txt = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.subVendor_txt = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.subNo_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subVendor_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subVendorCode_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subVendorPerson_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subVendorPersonCellPhone_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subVendorProduct_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subVendorNote_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subVendorNote_txt = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.button11 = new System.Windows.Forms.Button();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -148,7 +166,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.main_dgv)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -157,8 +176,9 @@
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subVendor_dgv)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -188,6 +208,10 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 24);
             this.tabControl1.Name = "tabControl1";
@@ -208,6 +232,7 @@
             // 
             // splitContainer1
             // 
+            this.splitContainer1.BackColor = System.Drawing.Color.White;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(3, 3);
             this.splitContainer1.Name = "splitContainer1";
@@ -224,14 +249,15 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel1);
-            this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
+            this.splitContainer1.Panel2.Controls.Add(this.main_dgv);
             this.splitContainer1.Size = new System.Drawing.Size(1071, 566);
             this.splitContainer1.SplitterDistance = 385;
             this.splitContainer1.TabIndex = 1;
             // 
             // groupBox5
             // 
-            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.button5);
             this.groupBox5.Controls.Add(this.button6);
             this.groupBox5.Controls.Add(this.button7);
@@ -254,6 +280,42 @@
             this.groupBox5.TabIndex = 48;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "첨부파일";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(403, 99);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(58, 23);
+            this.button5.TabIndex = 51;
+            this.button5.Text = "PDF";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(403, 18);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(58, 23);
+            this.button6.TabIndex = 48;
+            this.button6.Text = "PDF";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(403, 72);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(58, 23);
+            this.button7.TabIndex = 50;
+            this.button7.Text = "PDF";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(403, 45);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(58, 23);
+            this.button8.TabIndex = 49;
+            this.button8.Text = "PDF";
+            this.button8.UseVisualStyleBackColor = true;
             // 
             // label17
             // 
@@ -359,6 +421,7 @@
             // 
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.button14);
             this.groupBox4.Controls.Add(this.listBox1);
             this.groupBox4.Controls.Add(this.button10);
             this.groupBox4.Controls.Add(this.button9);
@@ -369,10 +432,47 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "groupBox4";
             // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(6, 299);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(190, 23);
+            this.button14.TabIndex = 3;
+            this.button14.Text = "Excel 만들기";
+            this.button14.UseVisualStyleBackColor = true;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 12;
+            this.listBox1.Location = new System.Drawing.Point(6, 74);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(190, 148);
+            this.listBox1.TabIndex = 2;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(6, 45);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(190, 23);
+            this.button10.TabIndex = 1;
+            this.button10.Text = "라인제거";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(6, 16);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(190, 23);
+            this.button9.TabIndex = 0;
+            this.button9.Text = "라인추가";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Location = new System.Drawing.Point(391, 3);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(467, 237);
@@ -650,14 +750,35 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "No :";
             // 
-            // dataGridView1
+            // panel1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label21);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1071, 37);
+            this.panel1.TabIndex = 1;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.Color.Transparent;
+            this.label21.Font = new System.Drawing.Font("굴림", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label21.Location = new System.Drawing.Point(5, 8);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(109, 19);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "구매요청서";
+            // 
+            // main_dgv
+            // 
+            this.main_dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.main_dgv.BackgroundColor = System.Drawing.Color.White;
+            this.main_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.main_dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
@@ -687,132 +808,11 @@
             this.Column27,
             this.Column28,
             this.Column29});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 36);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(1071, 141);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.splitContainer2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1077, 572);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "업체등록&조회";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(403, 99);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(58, 23);
-            this.button5.TabIndex = 51;
-            this.button5.Text = "PDF";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(403, 18);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(58, 23);
-            this.button6.TabIndex = 48;
-            this.button6.Text = "PDF";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(403, 72);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(58, 23);
-            this.button7.TabIndex = 50;
-            this.button7.Text = "PDF";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(403, 45);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(58, 23);
-            this.button8.TabIndex = 49;
-            this.button8.Text = "PDF";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(6, 16);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(190, 23);
-            this.button9.TabIndex = 0;
-            this.button9.Text = "라인추가";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer2.Name = "splitContainer2";
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.splitContainer3);
-            this.splitContainer2.Size = new System.Drawing.Size(1071, 566);
-            this.splitContainer2.SplitterDistance = 536;
-            this.splitContainer2.TabIndex = 0;
-            // 
-            // splitContainer3
-            // 
-            this.splitContainer3.BackColor = System.Drawing.Color.White;
-            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer3.Name = "splitContainer3";
-            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer3.Panel1
-            // 
-            this.splitContainer3.Panel1.Controls.Add(this.dataGridView2);
-            // 
-            // splitContainer3.Panel2
-            // 
-            this.splitContainer3.Panel2.Controls.Add(this.button11);
-            this.splitContainer3.Panel2.Controls.Add(this.textBox16);
-            this.splitContainer3.Panel2.Controls.Add(this.label27);
-            this.splitContainer3.Panel2.Controls.Add(this.textBox15);
-            this.splitContainer3.Panel2.Controls.Add(this.label26);
-            this.splitContainer3.Panel2.Controls.Add(this.textBox13);
-            this.splitContainer3.Panel2.Controls.Add(this.label24);
-            this.splitContainer3.Panel2.Controls.Add(this.textBox14);
-            this.splitContainer3.Panel2.Controls.Add(this.label25);
-            this.splitContainer3.Panel2.Controls.Add(this.textBox11);
-            this.splitContainer3.Panel2.Controls.Add(this.label22);
-            this.splitContainer3.Panel2.Controls.Add(this.textBox12);
-            this.splitContainer3.Panel2.Controls.Add(this.label23);
-            this.splitContainer3.Size = new System.Drawing.Size(536, 566);
-            this.splitContainer3.SplitterDistance = 351;
-            this.splitContainer3.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.label21);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1071, 37);
-            this.panel1.TabIndex = 1;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.BackColor = System.Drawing.Color.Transparent;
-            this.label21.Font = new System.Drawing.Font("굴림", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label21.Location = new System.Drawing.Point(5, 8);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(109, 19);
-            this.label21.TabIndex = 0;
-            this.label21.Text = "구매요청서";
+            this.main_dgv.Location = new System.Drawing.Point(0, 36);
+            this.main_dgv.Name = "main_dgv";
+            this.main_dgv.RowTemplate.Height = 23;
+            this.main_dgv.Size = new System.Drawing.Size(1071, 141);
+            this.main_dgv.TabIndex = 0;
             // 
             // Column1
             // 
@@ -961,139 +961,329 @@
             this.Column29.HeaderText = "비고";
             this.Column29.Name = "Column29";
             // 
-            // button10
+            // tabPage2
             // 
-            this.button10.Location = new System.Drawing.Point(6, 45);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(190, 23);
-            this.button10.TabIndex = 1;
-            this.button10.Text = "라인제거";
-            this.button10.UseVisualStyleBackColor = true;
+            this.tabPage2.Controls.Add(this.splitContainer2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1077, 572);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "업체등록&조회";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // splitContainer2
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(6, 74);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(190, 148);
-            this.listBox1.TabIndex = 2;
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer2.Name = "splitContainer2";
             // 
-            // dataGridView2
+            // splitContainer2.Panel1
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(536, 351);
-            this.dataGridView2.TabIndex = 1;
+            this.splitContainer2.Panel1.Controls.Add(this.splitContainer3);
+            this.splitContainer2.Size = new System.Drawing.Size(1071, 566);
+            this.splitContainer2.SplitterDistance = 536;
+            this.splitContainer2.TabIndex = 0;
             // 
-            // textBox11
+            // splitContainer3
             // 
-            this.textBox11.Location = new System.Drawing.Point(100, 39);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(164, 21);
-            this.textBox11.TabIndex = 39;
+            this.splitContainer3.BackColor = System.Drawing.Color.White;
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer3.Name = "splitContainer3";
+            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // label22
+            // splitContainer3.Panel1
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(14, 46);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(61, 12);
-            this.label22.TabIndex = 38;
-            this.label22.Text = "업체코드 :";
+            this.splitContainer3.Panel1.Controls.Add(this.subVendor_dgv);
             // 
-            // textBox12
+            // splitContainer3.Panel2
             // 
-            this.textBox12.Location = new System.Drawing.Point(100, 12);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(164, 21);
-            this.textBox12.TabIndex = 37;
+            this.splitContainer3.Panel2.Controls.Add(this.textBox11);
+            this.splitContainer3.Panel2.Controls.Add(this.label28);
+            this.splitContainer3.Panel2.Controls.Add(this.subVendorNote_txt);
+            this.splitContainer3.Panel2.Controls.Add(this.label27);
+            this.splitContainer3.Panel2.Controls.Add(this.subVendorDelete_btn);
+            this.splitContainer3.Panel2.Controls.Add(this.subVendorUpdate_btn);
+            this.splitContainer3.Panel2.Controls.Add(this.subVendorSave_btn);
+            this.splitContainer3.Panel2.Controls.Add(this.subVendorProduct_txt);
+            this.splitContainer3.Panel2.Controls.Add(this.label26);
+            this.splitContainer3.Panel2.Controls.Add(this.subVendorPersonCellPhone_txt);
+            this.splitContainer3.Panel2.Controls.Add(this.label24);
+            this.splitContainer3.Panel2.Controls.Add(this.subVendorPerson_txt);
+            this.splitContainer3.Panel2.Controls.Add(this.label25);
+            this.splitContainer3.Panel2.Controls.Add(this.subVendorCode_txt);
+            this.splitContainer3.Panel2.Controls.Add(this.label22);
+            this.splitContainer3.Panel2.Controls.Add(this.subVendor_txt);
+            this.splitContainer3.Panel2.Controls.Add(this.label23);
+            this.splitContainer3.Size = new System.Drawing.Size(536, 566);
+            this.splitContainer3.SplitterDistance = 351;
+            this.splitContainer3.TabIndex = 0;
             // 
-            // label23
+            // subVendor_dgv
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(14, 19);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(49, 12);
-            this.label23.TabIndex = 36;
-            this.label23.Text = "업체명 :";
+            this.subVendor_dgv.BackgroundColor = System.Drawing.Color.CadetBlue;
+            this.subVendor_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.subVendor_dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.subNo_col,
+            this.subVendor_col,
+            this.subVendorCode_col,
+            this.subVendorPerson_col,
+            this.subVendorPersonCellPhone_col,
+            this.subVendorProduct_col,
+            this.subVendorNote_col});
+            this.subVendor_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.subVendor_dgv.Location = new System.Drawing.Point(0, 0);
+            this.subVendor_dgv.Name = "subVendor_dgv";
+            this.subVendor_dgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.subVendor_dgv.RowTemplate.Height = 23;
+            this.subVendor_dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.subVendor_dgv.Size = new System.Drawing.Size(536, 351);
+            this.subVendor_dgv.TabIndex = 1;
+            this.subVendor_dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.subVendor_dgv_CellClick);
             // 
-            // textBox13
+            // subVendorDelete_btn
             // 
-            this.textBox13.Location = new System.Drawing.Point(100, 93);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(164, 21);
-            this.textBox13.TabIndex = 43;
+            this.subVendorDelete_btn.Location = new System.Drawing.Point(326, 174);
+            this.subVendorDelete_btn.Name = "subVendorDelete_btn";
+            this.subVendorDelete_btn.Size = new System.Drawing.Size(195, 23);
+            this.subVendorDelete_btn.TabIndex = 49;
+            this.subVendorDelete_btn.Text = "Delete";
+            this.subVendorDelete_btn.UseVisualStyleBackColor = true;
+            this.subVendorDelete_btn.Click += new System.EventHandler(this.subVendorDelete_btn_Click);
+            // 
+            // subVendorUpdate_btn
+            // 
+            this.subVendorUpdate_btn.Location = new System.Drawing.Point(326, 147);
+            this.subVendorUpdate_btn.Name = "subVendorUpdate_btn";
+            this.subVendorUpdate_btn.Size = new System.Drawing.Size(195, 23);
+            this.subVendorUpdate_btn.TabIndex = 48;
+            this.subVendorUpdate_btn.Text = "Update";
+            this.subVendorUpdate_btn.UseVisualStyleBackColor = true;
+            this.subVendorUpdate_btn.Click += new System.EventHandler(this.subVendorUpdate_btn_Click);
+            // 
+            // subVendorSave_btn
+            // 
+            this.subVendorSave_btn.Location = new System.Drawing.Point(326, 120);
+            this.subVendorSave_btn.Name = "subVendorSave_btn";
+            this.subVendorSave_btn.Size = new System.Drawing.Size(195, 23);
+            this.subVendorSave_btn.TabIndex = 2;
+            this.subVendorSave_btn.Text = "Save";
+            this.subVendorSave_btn.UseVisualStyleBackColor = true;
+            this.subVendorSave_btn.Click += new System.EventHandler(this.subVendorSave_btn_Click);
+            // 
+            // subVendorProduct_txt
+            // 
+            this.subVendorProduct_txt.Location = new System.Drawing.Point(103, 147);
+            this.subVendorProduct_txt.Name = "subVendorProduct_txt";
+            this.subVendorProduct_txt.Size = new System.Drawing.Size(164, 21);
+            this.subVendorProduct_txt.TabIndex = 45;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(17, 154);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(85, 12);
+            this.label26.TabIndex = 44;
+            this.label26.Text = "취급품목설명 :";
+            // 
+            // subVendorPersonCellPhone_txt
+            // 
+            this.subVendorPersonCellPhone_txt.Location = new System.Drawing.Point(103, 120);
+            this.subVendorPersonCellPhone_txt.Name = "subVendorPersonCellPhone_txt";
+            this.subVendorPersonCellPhone_txt.Size = new System.Drawing.Size(164, 21);
+            this.subVendorPersonCellPhone_txt.TabIndex = 43;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(14, 100);
+            this.label24.Location = new System.Drawing.Point(17, 127);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(49, 12);
             this.label24.TabIndex = 42;
             this.label24.Text = "연락처 :";
             // 
-            // textBox14
+            // subVendorPerson_txt
             // 
-            this.textBox14.Location = new System.Drawing.Point(100, 66);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(164, 21);
-            this.textBox14.TabIndex = 41;
+            this.subVendorPerson_txt.Location = new System.Drawing.Point(103, 93);
+            this.subVendorPerson_txt.Name = "subVendorPerson_txt";
+            this.subVendorPerson_txt.Size = new System.Drawing.Size(164, 21);
+            this.subVendorPerson_txt.TabIndex = 41;
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(14, 73);
+            this.label25.Location = new System.Drawing.Point(17, 100);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(49, 12);
             this.label25.TabIndex = 40;
             this.label25.Text = "담당자 :";
             // 
-            // textBox15
+            // subVendorCode_txt
             // 
-            this.textBox15.Location = new System.Drawing.Point(100, 120);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(164, 21);
-            this.textBox15.TabIndex = 45;
+            this.subVendorCode_txt.Location = new System.Drawing.Point(103, 66);
+            this.subVendorCode_txt.Name = "subVendorCode_txt";
+            this.subVendorCode_txt.Size = new System.Drawing.Size(164, 21);
+            this.subVendorCode_txt.TabIndex = 39;
             // 
-            // label26
+            // label22
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(14, 127);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(61, 12);
-            this.label26.TabIndex = 44;
-            this.label26.Text = "업체설명 :";
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(17, 73);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(61, 12);
+            this.label22.TabIndex = 38;
+            this.label22.Text = "업체코드 :";
             // 
-            // textBox16
+            // subVendor_txt
             // 
-            this.textBox16.Location = new System.Drawing.Point(100, 147);
-            this.textBox16.Multiline = true;
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(164, 59);
-            this.textBox16.TabIndex = 47;
+            this.subVendor_txt.Location = new System.Drawing.Point(103, 39);
+            this.subVendor_txt.Name = "subVendor_txt";
+            this.subVendor_txt.Size = new System.Drawing.Size(164, 21);
+            this.subVendor_txt.TabIndex = 37;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(17, 46);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(49, 12);
+            this.label23.TabIndex = 36;
+            this.label23.Text = "업체명 :";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.dataGridView1);
+            this.tabPage3.Controls.Add(this.panel2);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1077, 572);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "구매내역";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 144);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.Size = new System.Drawing.Size(1071, 425);
+            this.dataGridView1.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1071, 141);
+            this.panel2.TabIndex = 0;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1077, 572);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1077, 572);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "tabPage5";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1077, 572);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "tabPage6";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // subNo_col
+            // 
+            this.subNo_col.HeaderText = "No";
+            this.subNo_col.Name = "subNo_col";
+            this.subNo_col.Width = 50;
+            // 
+            // subVendor_col
+            // 
+            this.subVendor_col.HeaderText = "업체명";
+            this.subVendor_col.Name = "subVendor_col";
+            // 
+            // subVendorCode_col
+            // 
+            this.subVendorCode_col.HeaderText = "업체코드";
+            this.subVendorCode_col.Name = "subVendorCode_col";
+            this.subVendorCode_col.Width = 50;
+            // 
+            // subVendorPerson_col
+            // 
+            this.subVendorPerson_col.HeaderText = "담당자";
+            this.subVendorPerson_col.Name = "subVendorPerson_col";
+            this.subVendorPerson_col.Width = 50;
+            // 
+            // subVendorPersonCellPhone_col
+            // 
+            this.subVendorPersonCellPhone_col.HeaderText = "연락처";
+            this.subVendorPersonCellPhone_col.Name = "subVendorPersonCellPhone_col";
+            // 
+            // subVendorProduct_col
+            // 
+            this.subVendorProduct_col.HeaderText = "취급품목설명";
+            this.subVendorProduct_col.Name = "subVendorProduct_col";
+            // 
+            // subVendorNote_col
+            // 
+            this.subVendorNote_col.HeaderText = "기타";
+            this.subVendorNote_col.Name = "subVendorNote_col";
+            this.subVendorNote_col.Width = 200;
+            // 
+            // subVendorNote_txt
+            // 
+            this.subVendorNote_txt.Location = new System.Drawing.Point(326, 12);
+            this.subVendorNote_txt.Multiline = true;
+            this.subVendorNote_txt.Name = "subVendorNote_txt";
+            this.subVendorNote_txt.Size = new System.Drawing.Size(195, 100);
+            this.subVendorNote_txt.TabIndex = 51;
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(14, 154);
+            this.label27.Location = new System.Drawing.Point(283, 19);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(61, 12);
-            this.label27.TabIndex = 46;
-            this.label27.Text = "업체설명 :";
+            this.label27.Size = new System.Drawing.Size(37, 12);
+            this.label27.TabIndex = 50;
+            this.label27.Text = "기타 :";
             // 
-            // button11
+            // textBox11
             // 
-            this.button11.Location = new System.Drawing.Point(390, 10);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(143, 23);
-            this.button11.TabIndex = 2;
-            this.button11.Text = "button11";
-            this.button11.UseVisualStyleBackColor = true;
+            this.textBox11.Location = new System.Drawing.Point(103, 12);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.ReadOnly = true;
+            this.textBox11.Size = new System.Drawing.Size(164, 21);
+            this.textBox11.TabIndex = 53;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(17, 19);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(31, 12);
+            this.label28.TabIndex = 52;
+            this.label28.Text = "NO :";
             // 
             // Form1
             // 
@@ -1123,7 +1313,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.main_dgv)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
@@ -1133,9 +1325,9 @@
             this.splitContainer3.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subVendor_dgv)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1150,7 +1342,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView main_dgv;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
@@ -1235,20 +1427,38 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column29;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.DataGridView subVendor_dgv;
+        private System.Windows.Forms.Button subVendorSave_btn;
+        private System.Windows.Forms.TextBox subVendorProduct_txt;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox subVendorPersonCellPhone_txt;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox subVendorPerson_txt;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox subVendorCode_txt;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox subVendor_txt;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.Button subVendorDelete_btn;
+        private System.Windows.Forms.Button subVendorUpdate_btn;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subNo_col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subVendor_col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subVendorCode_col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subVendorPerson_col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subVendorPersonCellPhone_col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subVendorProduct_col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subVendorNote_col;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox subVendorNote_txt;
+        private System.Windows.Forms.Label label27;
     }
 }
 
