@@ -125,6 +125,17 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.subVendor_dgv = new System.Windows.Forms.DataGridView();
+            this.subNo_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subVendor_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subVendorCode_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subVendorPerson_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subVendorPersonCellPhone_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subVendorProduct_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subVendorNote_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.subVendorNote_txt = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
             this.subVendorDelete_btn = new System.Windows.Forms.Button();
             this.subVendorUpdate_btn = new System.Windows.Forms.Button();
             this.subVendorSave_btn = new System.Windows.Forms.Button();
@@ -141,21 +152,10 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.subNo_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subVendor_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subVendorCode_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subVendorPerson_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subVendorPersonCellPhone_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subVendorProduct_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subVendorNote_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subVendorNote_txt = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -1048,6 +1048,79 @@
             this.subVendor_dgv.TabIndex = 1;
             this.subVendor_dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.subVendor_dgv_CellClick);
             // 
+            // subNo_col
+            // 
+            this.subNo_col.HeaderText = "No";
+            this.subNo_col.Name = "subNo_col";
+            this.subNo_col.Width = 50;
+            // 
+            // subVendor_col
+            // 
+            this.subVendor_col.HeaderText = "업체명";
+            this.subVendor_col.Name = "subVendor_col";
+            // 
+            // subVendorCode_col
+            // 
+            this.subVendorCode_col.HeaderText = "업체코드";
+            this.subVendorCode_col.Name = "subVendorCode_col";
+            this.subVendorCode_col.Width = 50;
+            // 
+            // subVendorPerson_col
+            // 
+            this.subVendorPerson_col.HeaderText = "담당자";
+            this.subVendorPerson_col.Name = "subVendorPerson_col";
+            this.subVendorPerson_col.Width = 50;
+            // 
+            // subVendorPersonCellPhone_col
+            // 
+            this.subVendorPersonCellPhone_col.HeaderText = "연락처";
+            this.subVendorPersonCellPhone_col.Name = "subVendorPersonCellPhone_col";
+            // 
+            // subVendorProduct_col
+            // 
+            this.subVendorProduct_col.HeaderText = "취급품목설명";
+            this.subVendorProduct_col.Name = "subVendorProduct_col";
+            // 
+            // subVendorNote_col
+            // 
+            this.subVendorNote_col.HeaderText = "기타";
+            this.subVendorNote_col.Name = "subVendorNote_col";
+            this.subVendorNote_col.Width = 200;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(103, 12);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.ReadOnly = true;
+            this.textBox11.Size = new System.Drawing.Size(164, 21);
+            this.textBox11.TabIndex = 53;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(17, 19);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(31, 12);
+            this.label28.TabIndex = 52;
+            this.label28.Text = "NO :";
+            // 
+            // subVendorNote_txt
+            // 
+            this.subVendorNote_txt.Location = new System.Drawing.Point(326, 12);
+            this.subVendorNote_txt.Multiline = true;
+            this.subVendorNote_txt.Name = "subVendorNote_txt";
+            this.subVendorNote_txt.Size = new System.Drawing.Size(195, 100);
+            this.subVendorNote_txt.TabIndex = 51;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(283, 19);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(37, 12);
+            this.label27.TabIndex = 50;
+            this.label27.Text = "기타 :";
+            // 
             // subVendorDelete_btn
             // 
             this.subVendorDelete_btn.Location = new System.Drawing.Point(326, 174);
@@ -1132,6 +1205,7 @@
             this.subVendorCode_txt.Name = "subVendorCode_txt";
             this.subVendorCode_txt.Size = new System.Drawing.Size(164, 21);
             this.subVendorCode_txt.TabIndex = 39;
+            this.subVendorCode_txt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberOnly);
             // 
             // label22
             // 
@@ -1189,6 +1263,22 @@
             this.panel2.Size = new System.Drawing.Size(1071, 263);
             this.panel2.TabIndex = 0;
             // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(0, 86);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(1071, 171);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart1";
+            // 
             // tabPage4
             // 
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
@@ -1218,95 +1308,6 @@
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "tabPage6";
             this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // subNo_col
-            // 
-            this.subNo_col.HeaderText = "No";
-            this.subNo_col.Name = "subNo_col";
-            this.subNo_col.Width = 50;
-            // 
-            // subVendor_col
-            // 
-            this.subVendor_col.HeaderText = "업체명";
-            this.subVendor_col.Name = "subVendor_col";
-            // 
-            // subVendorCode_col
-            // 
-            this.subVendorCode_col.HeaderText = "업체코드";
-            this.subVendorCode_col.Name = "subVendorCode_col";
-            this.subVendorCode_col.Width = 50;
-            // 
-            // subVendorPerson_col
-            // 
-            this.subVendorPerson_col.HeaderText = "담당자";
-            this.subVendorPerson_col.Name = "subVendorPerson_col";
-            this.subVendorPerson_col.Width = 50;
-            // 
-            // subVendorPersonCellPhone_col
-            // 
-            this.subVendorPersonCellPhone_col.HeaderText = "연락처";
-            this.subVendorPersonCellPhone_col.Name = "subVendorPersonCellPhone_col";
-            // 
-            // subVendorProduct_col
-            // 
-            this.subVendorProduct_col.HeaderText = "취급품목설명";
-            this.subVendorProduct_col.Name = "subVendorProduct_col";
-            // 
-            // subVendorNote_col
-            // 
-            this.subVendorNote_col.HeaderText = "기타";
-            this.subVendorNote_col.Name = "subVendorNote_col";
-            this.subVendorNote_col.Width = 200;
-            // 
-            // subVendorNote_txt
-            // 
-            this.subVendorNote_txt.Location = new System.Drawing.Point(326, 12);
-            this.subVendorNote_txt.Multiline = true;
-            this.subVendorNote_txt.Name = "subVendorNote_txt";
-            this.subVendorNote_txt.Size = new System.Drawing.Size(195, 100);
-            this.subVendorNote_txt.TabIndex = 51;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(283, 19);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(37, 12);
-            this.label27.TabIndex = 50;
-            this.label27.Text = "기타 :";
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(103, 12);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.ReadOnly = true;
-            this.textBox11.Size = new System.Drawing.Size(164, 21);
-            this.textBox11.TabIndex = 53;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(17, 19);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(31, 12);
-            this.label28.TabIndex = 52;
-            this.label28.Text = "NO :";
-            // 
-            // chart1
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(0, 86);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(1071, 171);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
             // 
             // Form1
             // 

@@ -86,6 +86,21 @@ namespace BPMMaker
                     sqlReader.GetString(6));
             }
         }
+        //텍스트 박스 모두 지우기
+        private void Clear_AllTextbox(Control con)
+        {
+            foreach (Control c in con.Controls)
+            {
+                if(c is TextBox)
+                {
+                    ((TextBox)c).Clear();
+                }
+                else
+                {
+                    Clear_AllTextbox(c);
+                }
+            }
+        }
         #endregion
         #region 이벤트
         private void subVendorSave_btn_Click(object sender, EventArgs e)
@@ -212,5 +227,21 @@ namespace BPMMaker
         }
         #endregion
 
+        private void NumberOnly(object sender, KeyPressEventArgs e)
+        {
+            int asciiCode = Convert.ToInt32(e.KeyChar);
+            if((asciiCode != 8))
+            {
+                if((asciiCode >=48 && asciiCode <= 57))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    MessageBox.Show("숫자만 입력하세요");
+                    e.Handled = true;
+                }
+            }
+        }
     }
 }
