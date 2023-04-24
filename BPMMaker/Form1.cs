@@ -1,12 +1,16 @@
-﻿using System;
+﻿using BPMMaker.DataBase;
+using HellsysLibrary.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,9 +19,21 @@ namespace BPMMaker
 {
     public partial class Form1 : Form
     {
-        //데이터 베이스 경로
-        string myDB = "MyDB.db";
-        string myDBPath = @"URI=file:" + Application.StartupPath + "\\MyDB.db";
+        #region 데이터베이스멤버
+        private static string SECTION1 = "DATABASE";
+        private static string DbName = "MyDB,db";
+        private static string MyDBPath = System.IO.Path.Combine(Helper.EPIIni.Read(SECTION1, "DBPath"), DbName);
+        private static string conString = "Data Source=" + MyDBPath;
+        private static BindingSource bindingSrc;
+
+        private static SQLiteConnection connection = new SQLiteConnection(conString);
+        private static SQLiteCommand command = new SQLiteCommand("", connection);
+        private static string sql;
+        private static string dbCommand;
+        DBManager dbm = new DBManager();
+        #endregion
+
+
 
         SQLiteConnection sqlCon;
         SQLiteCommand sqlCmd;
@@ -25,73 +41,106 @@ namespace BPMMaker
         public Form1()
         {
             InitializeComponent();
-            Create_DB();
+            InitForms();
+            //Create_DB();
             Rayout_Setting();
-            Data_Show();
+            //Data_Show();
+        }
+
+        private void InitForms()
+        {
+            
+            dbm.Create_DB();
+            UpdateDatabinding();
+        }
+        private void displayPosition()
+        {
+            VendorPosition_lbl.Text = "Posion: " + Convert.ToString(bindingSrc.Position + 1) + "/" + bindingSrc.Count.ToString();
         }
         #region 레이아웃
         private void Rayout_Setting()
         {
-            this.main_dgv.Font = new Font("tahoma", 9);
-            this.subVendor_dgv.Font = new Font("tahoma", 9);
+            this.main_dgv.Font = new Font("tahoma", 11);
+            this.subVendor_dgv.Font = new Font("tahoma", 11);
         }
-
         #endregion
-        #region 메서드
-        //데이터베이스 파일 및 목록 생성
-        private void Create_DB()
-        {
-            if (!System.IO.File.Exists(myDB))
-            {
-                SQLiteConnection.CreateFile(myDB);
-                using (var sqlite = new SQLiteConnection(@"Data Source=" + myDB))
-                {
-                    sqlite.Open();
-                    string sql = "create table Vendor(" +
-                        "vendornumber varchar(20)," +
-                        "vendorname varchar(12)," +
-                        "vendorcode varchar(12)," +
-                        "vendorperson varchar(12)," +
-                        "vendorpersoncellphone varchar(12)," +
-                        "vendorproduct varchar(12)," +
-                        "vendornote varchar(12))";
-                    SQLiteCommand command = new SQLiteCommand(sql, sqlite);
-                    command.ExecuteNonQuery();
-                }
-            }
-            else
-            {
-                Console.WriteLine("Database cannot crate");
-                return;
-            }
-        }
-        //데이터 불러오기
-        private void Data_Show()
-        {
-            var con = new SQLiteConnection(myDBPath);
-            con.Open();
+        #region DB 메서드
 
-            string stm = "SELECT * FROM Vendor";
-            var cmd = new SQLiteCommand(stm, con);
-            sqlReader = cmd.ExecuteReader();
-            while (sqlReader.Read())
+        private void UpdateDatabinding(SQLiteCommand cmd = null)
+        {
+            try
             {
-                subVendor_dgv.Rows.Insert(0,
-                    sqlReader.GetString(0), 
-                    sqlReader.GetString(1),
-                    sqlReader.GetString(2),
-                    sqlReader.GetString(3),
-                    sqlReader.GetString(4),
-                    sqlReader.GetString(5),
-                    sqlReader.GetString(6));
+                TextBox tb;
+                foreach (Control c in Groupsub2.Controls)
+                {
+                    if (c.GetType() == typeof(TextBox))
+                    {
+                        tb = (TextBox)c;
+                        tb.DataBindings.Clear();
+                        tb.Text = "";
+                    }
+                    dbCommand = "SELECT";
+
+                    sql = "SELECT * FROM Vendor ORDER BY vendorcode ASC;";
+                    if (cmd == null)
+                    {
+                        command.CommandText = sql;
+                    }
+                    else
+                    {
+                        command = cmd;
+                    }
+                }
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+                DataSet dataSt = new DataSet();
+                adapter.Fill(dataSt, "Vendor");
+                bindingSrc = new BindingSource();
+                bindingSrc.DataSource = dataSt.Tables["Vendor"];
+
+                //simple databinding
+
+                subVendorCode_txt.DataBindings.Add("Text", bindingSrc, "vendorcode");
+                subVendor_txt.DataBindings.Add("Text", bindingSrc, "vendorname");
+                subVendorPerson_txt.DataBindings.Add("Text", bindingSrc, "vendorperson");
+                subVendorPersonCellPhone_txt.DataBindings.Add("Text", bindingSrc, "vendorpersoncellphone");
+                subVendorProduct_txt.DataBindings.Add("Text", bindingSrc, "vendorproduct");
+                subVendorNote_txt.DataBindings.Add("Text", bindingSrc, "vendornote");
+
+                subVendor_dgv.DataSource = bindingSrc;
+
+                subVendor_dgv.AutoResizeColumns((DataGridViewAutoSizeColumnsMode)DataGridViewAutoSizeColumnsMode.AllCells);
+                subVendor_dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+                subVendor_dgv.Columns[0].Width = 70;//AutoID
+                displayPosition();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Data Binding Error: " + ex.Message.ToString(), "Error Message : son", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        //텍스트 박스 모두 지우기
+        private void addCmdParameters()
+        {
+            command.Parameters.Clear();
+            command.CommandText = sql;
+
+            command.Parameters.AddWithValue("vendorcode", subVendorCode_txt.Text.Trim());
+            command.Parameters.AddWithValue("vendorname", subVendor_txt.Text.Trim());
+            command.Parameters.AddWithValue("vendorperson", subVendorPerson_txt.Text.Trim());
+            command.Parameters.AddWithValue("vendorpersoncellphone", subVendorPersonCellPhone_txt.Text.Trim());
+            command.Parameters.AddWithValue("vendorproduct", subVendorProduct_txt.Text.Trim());
+            command.Parameters.AddWithValue("vendornote", subVendorNote_txt.Text.Trim());
+
+            //if (dbCommand.ToUpper() == "UPDATE")
+            //{
+            //    command.Parameters.AddWithValue("AutoID", AutoID_txt.Text.Trim());
+            //}
+        }
         private void Clear_AllTextbox(Control con)
         {
             foreach (Control c in con.Controls)
             {
-                if(c is TextBox)
+                if (c is TextBox)
                 {
                     ((TextBox)c).Clear();
                 }
@@ -105,57 +154,110 @@ namespace BPMMaker
         #region 이벤트
         private void subVendorSave_btn_Click(object sender, EventArgs e)
         {
-            var con = new SQLiteConnection(myDBPath);
-            con.Open();
-            var cmd = new SQLiteCommand(con);
-
-            try
+            //addCmdParameters();
+            if (string.IsNullOrEmpty(subVendorCode_txt.Text.Trim()) ||
+                string.IsNullOrEmpty(subVendor_txt.Text.Trim()))
             {
-                cmd.CommandText = "INSERT INTO " +
-                    "Vendor(vendornumber,vendorname,vendorcode,vendorperson,vendorpersoncellphone,vendorproduct,vendornote) " +
-                    "VALUES(@vendornumber, @vendorname, @vendorcode, @vendorperson, @vendorpersoncellphone,@vendorproduct, @vendornote)";
+                MessageBox.Show("Please fill in the required fields.", "Add New Record", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                string VENDORNO = "";
-                string VENDORNAME = subVendor_txt.Text;
-                string VENDORCODE = subVendorCode_txt.Text;
-                string VENDORPERSON = subVendorPerson_txt.Text;
-                string VENDORPERSONCELLPHONE = subVendorPersonCellPhone_txt.Text;
-                string VENDORPRODUCT = subVendorProduct_txt.Text;
-                string VENDORNOTE = subVendorNote_txt.Text;
-
-                cmd.Parameters.AddWithValue("@vendornumber", VENDORNO);
-                cmd.Parameters.AddWithValue("@vendorname", VENDORNAME);
-                cmd.Parameters.AddWithValue("@vendorcode", VENDORCODE);
-                cmd.Parameters.AddWithValue("@vendorperson", VENDORPERSON);
-                cmd.Parameters.AddWithValue("@vendorpersoncellphone", VENDORPERSONCELLPHONE);
-                cmd.Parameters.AddWithValue("@vendorproduct", VENDORPRODUCT);
-                cmd.Parameters.AddWithValue("@vendornote", VENDORNOTE);
-                //subVendor_dgv.ColumnCount = 6;
-                //subVendor_dgv.Columns[0].Name = "업체명";
-                //subVendor_dgv.Columns[1].Name = "업체코드";
-                //subVendor_dgv.Columns[2].Name = "업체담당자";
-                //subVendor_dgv.Columns[3].Name = "연락처";
-                //subVendor_dgv.Columns[4].Name = "업체취급품목";
-                //subVendor_dgv.Columns[5].Name = "기타";
-
-                string[] row = new string[] { VENDORNO, VENDORNAME, VENDORCODE, VENDORPERSON, VENDORPERSONCELLPHONE,VENDORPRODUCT, VENDORNOTE };
-                subVendor_dgv.Rows.Add(row);
-
-                cmd.ExecuteNonQuery();
-
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("데이터를 입력하지 못하였습니다.");
                 return;
             }
-        }
+            OpenConnection();
+            try
+            {
+                if (subVendorAddNew_btn.Text == "Add New")
+                {
+                    if (subVendorCode_txt.Text.Trim() == "" ||
+                        string.IsNullOrEmpty(subVendorCode_txt.Text.Trim()))
+                    {
+                        MessageBox.Show("Plese select an item.");
+                        return;
+                    }
+                    if (MessageBox.Show("ID: " + subVendorCode_txt.Text.Trim() +
+                        " -- Do you want to update the slected record?",
+                        "Visual C# and SQLite (UPDATE)",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                        MessageBoxDefaultButton.Button2) == DialogResult.No)
+                    {
+                        return;
+                    }
+                    dbCommand = "UPDATE";
+                    sql = "UPDATE Vendor SET vendorcode = @vendorcode, vendorname = @vendorname, vendorperson = @vendorperson, ";
+                    sql += "vendorpersoncellphone = @vendorpersoncellphone, vendorproduct=@vendorproduct, vendornote=@vendornote Where vendorcode = @vendorcode";
+                    addCmdParameters();
+                }
+                else if (subVendorAddNew_btn.Text.Equals("Cancel"))
+                {
+                    DialogResult result;
+                    result = MessageBox.Show("Do you want to add a new Vendor record?) (Y/N)",
+                        "데이터 추가(INSERT) ",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-        
+                    if (result == DialogResult.Yes)
+                    {
+                        dbCommand = "INSERT";
+                        sql = "INSERT INTO Vendor(vendorcode, vendorname, vendorperson, vendorpersoncellphone, vendorproduct, vendornote)" +
+                            "VALUES(@vendorcode, @vendorname, @vendorperson, @vendorpersoncellphone, @vendorproduct, @vendornote)";
+
+                        addCmdParameters();
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                int executeResult = command.ExecuteNonQuery();
+                if (executeResult == -1)
+                {
+                    MessageBox.Show("Data was not Saved", "Fail to save Data",
+                        MessageBoxButtons.OK, MessageBoxIcon.Stop);
+
+                }
+                else
+                {
+                    MessageBox.Show("Your SQL " + dbCommand + "Query has been excuted succes");
+                    UpdateDatabinding();
+                    subVendorAddNew_btn.Text = "Add New";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message.ToString(), "Save Data : ",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                dbCommand = "";
+                CloseConnection();
+            }
+        }
+        #region 이벤트
+        private void moveFirst_btn_Click(object sender, EventArgs e)
+        {
+            bindingSrc.MoveFirst();
+            displayPosition();
+        }
+        private void movePreview_btn_Click(object sender, EventArgs e)
+        {
+            bindingSrc.MovePrevious();
+            displayPosition();
+        }
+        private void moveNext_btn_Click(object sender, EventArgs e)
+        {
+            bindingSrc.MoveNext();
+            displayPosition();
+        }
+        private void moveLast_btn_Click(object sender, EventArgs e)
+        {
+            bindingSrc.MoveLast();
+            displayPosition();
+        }
+        #endregion
+
 
         private void subVendorUpdate_btn_Click(object sender, EventArgs e)
         {
-            var con = new SQLiteConnection(myDBPath);
+            var con = new SQLiteConnection(MyDBPath);
             con.Open();
 
             var cmd = new SQLiteCommand(con);
@@ -173,7 +275,7 @@ namespace BPMMaker
 
                 cmd.ExecuteNonQuery();
                 subVendor_dgv.Rows.Clear();
-                Data_Show();
+                //Data_Show();
 
             }
             catch (Exception)
@@ -185,7 +287,7 @@ namespace BPMMaker
         //데이터 지우기
         private void subVendorDelete_btn_Click(object sender, EventArgs e)
         {
-            var con = new SQLiteConnection(myDBPath);
+            var con = new SQLiteConnection(MyDBPath);
             con.Open();
             var cmd = new SQLiteCommand(con);
 
@@ -196,7 +298,7 @@ namespace BPMMaker
                 cmd.Parameters.AddWithValue("@vendorname", subVendor_txt.Text);
                 cmd.ExecuteNonQuery();
                 subVendor_dgv.Rows.Clear();
-                Data_Show();
+                //Data_Show();
             }
             catch (Exception)
             {
@@ -223,16 +325,40 @@ namespace BPMMaker
             {
                 return;
             }
-            
+
+        }
+        /// <summary>
+        /// Setting Form 열기
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SettingsForm frm = new SettingsForm();
+            frm.ShowDialog();
         }
         #endregion
-
+        #region 메서드
+        public void OpenConnection()
+        {
+            if (connection.State == ConnectionState.Closed)
+            {
+                connection.Open();
+            }
+        }
+        public void CloseConnection()
+        {
+            if (connection.State == ConnectionState.Open)
+            {
+                connection.Clone();
+            }
+        }
         private void NumberOnly(object sender, KeyPressEventArgs e)
         {
             int asciiCode = Convert.ToInt32(e.KeyChar);
-            if((asciiCode != 8))
+            if ((asciiCode != 8))
             {
-                if((asciiCode >=48 && asciiCode <= 57))
+                if ((asciiCode >= 48 && asciiCode <= 57))
                 {
                     e.Handled = false;
                 }
@@ -243,11 +369,95 @@ namespace BPMMaker
                 }
             }
         }
+        #endregion
 
-        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void subVendorAddNew_btn_Click(object sender, EventArgs e)
         {
-            SettingsForm frm = new SettingsForm();
-            frm.ShowDialog();
+            try
+            {
+                if (subVendorAddNew_btn.Text == "Add New")
+                {
+                    subVendorAddNew_btn.Text = "Cancel";
+                    VendorPosition_lbl.Text = "Position: 0/0";
+                    subVendor_dgv.ClearSelection();
+                    subVendor_dgv.Enabled = false;
+                }
+                else
+                {
+                    subVendorAddNew_btn.Text = "Add New";
+                    UpdateDatabinding();
+                    return;
+                }
+                TextBox txt;
+                foreach (Control c in Groupsub2.Controls)
+                {
+                    if (c.GetType() == typeof(TextBox))
+                    {
+                        txt = (TextBox)c;
+                        txt.DataBindings.Clear();
+                        txt.Text = "";
+                        if (txt.Name.Equals("subVendorCode_txt"))
+                        {
+                            if (txt.CanFocus)
+                            {
+                                txt.Focus();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void subSearch_btn_Click(object sender, EventArgs e)
+        {
+            if (subVendorAddNew_btn.Text == "Cancel")
+            {
+                return;
+            }
+
+            OpenConnection();
+            try
+            {
+                if (string.IsNullOrEmpty(subKeyword_txt.Text.Trim()))
+                {
+                    UpdateDatabinding();
+                    return;
+                }
+                sql = "SELECT * FROM Vendor ";
+                sql += "WHERE vendorcode LIKE @Keyword2 ";
+                sql += "OR vendorname LIKE @Keyword2 ";
+                sql += "OR vendorperson LIKE @Keyword2 ";
+                sql += "OR vendorpersoncellphone = @Keyword1 ";
+                sql += "OR vendorproduct LIKE @Keyword2 ";
+                sql += "OR vendornote LIKE @Keyword2 ";
+                sql += "ORDER BY vendorcode ASC";
+
+                command.CommandType = CommandType.Text;
+                command.CommandText = sql;
+                command.Parameters.Clear();
+
+                string keyword = string.Format("%{0}%", subKeyword_txt.Text);
+                command.Parameters.AddWithValue("Keyword1", subKeyword_txt.Text);
+                command.Parameters.AddWithValue("Keyword2", keyword);
+
+                UpdateDatabinding(command);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Search Error: " + ex.Message.ToString(),
+                    "Error Message : ",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                CloseConnection();
+                subKeyword_txt.Focus();
+            }
         }
     }
 }
