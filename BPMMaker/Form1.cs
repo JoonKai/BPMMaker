@@ -243,5 +243,11 @@ namespace BPMMaker
                 }
             }
         }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SettingsForm frm = new SettingsForm();
+            frm.ShowDialog();
+        }
     }
 }
