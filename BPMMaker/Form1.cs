@@ -254,56 +254,45 @@ namespace BPMMaker
         }
         #endregion
 
-
-        private void subVendorUpdate_btn_Click(object sender, EventArgs e)
-        {
-            var con = new SQLiteConnection(MyDBPath);
-            con.Open();
-
-            var cmd = new SQLiteCommand(con);
-            try
-            {
-                //cmd.CommandText = "UPDATE Vendor Set id=@Id where name = @Name";
-                //cmd.Prepare();
-                //cmd.Parameters.AddWithValue("@vendornumber", subNo_col.);
-                //cmd.Parameters.AddWithValue("@vendorname", VENDORNAME);
-                //cmd.Parameters.AddWithValue("@vendorcode", VENDORCODE);
-                //cmd.Parameters.AddWithValue("@vendorperson", VENDORPERSON);
-                //cmd.Parameters.AddWithValue("@vendorpersoncellphone", VENDORPERSONCELLPHONE);
-                //cmd.Parameters.AddWithValue("@vendorproduct", VENDORPRODUCT);
-                //cmd.Parameters.AddWithValue("@vendornote", VENDORNOTE);
-
-                cmd.ExecuteNonQuery();
-                subVendor_dgv.Rows.Clear();
-                //Data_Show();
-
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("cannot update data");
-                return;
-            }
-        }
         //데이터 지우기
         private void subVendorDelete_btn_Click(object sender, EventArgs e)
         {
-            var con = new SQLiteConnection(MyDBPath);
-            con.Open();
-            var cmd = new SQLiteCommand(con);
-
+            if (subVendorAddNew_btn.Text == "Cancel")
+            {
+                return;
+            }
+            if (subVendorCode_txt.Text.Trim() == "" ||
+                string.IsNullOrEmpty(subVendorCode_txt.Text.Trim()))
+            {
+                MessageBox.Show("Please select an item from the list",
+                    "Delete Data : ",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            OpenConnection();
             try
             {
-                cmd.CommandText = "DELETE FROM Vendor where VENDORNAME = @vendorname";
-                cmd.Prepare();
-                cmd.Parameters.AddWithValue("@vendorname", subVendor_txt.Text);
-                cmd.ExecuteNonQuery();
-                subVendor_dgv.Rows.Clear();
-                //Data_Show();
+                dbCommand = "DELETE";
+                sql = "DELETE FROM Vendor WHERE vendorcode = @vendorcode";
+
+                command.Parameters.Clear();
+                command.CommandText = sql;
+                command.Parameters.AddWithValue("vendorcode", subVendorCode_txt.Text.Trim());
+
+                int executeResult = command.ExecuteNonQuery();
+                if (executeResult == 1)
+                {
+                    UpdateDatabinding();
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Console.WriteLine("cannot delete data");
-                return;
+                MessageBox.Show("Error: " + ex.Message.ToString());
+            }
+            finally
+            {
+                dbCommand = "";
+                CloseConnection();
             }
         }
         private void subVendor_dgv_CellClick(object sender, DataGridViewCellEventArgs e)

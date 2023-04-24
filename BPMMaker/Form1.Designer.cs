@@ -146,7 +146,6 @@
             this.subVendorAddNew_btn = new System.Windows.Forms.Button();
             this.subVendorDelete_btn = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
-            this.subVendorUpdate_btn = new System.Windows.Forms.Button();
             this.subVendorNote_txt = new System.Windows.Forms.TextBox();
             this.subVendorSave_btn = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
@@ -928,7 +927,7 @@
             this.main_dgv.Name = "main_dgv";
             this.main_dgv.RowHeadersWidth = 82;
             this.main_dgv.RowTemplate.Height = 23;
-            this.main_dgv.Size = new System.Drawing.Size(1562, 110);
+            this.main_dgv.Size = new System.Drawing.Size(1562, 102);
             this.main_dgv.TabIndex = 0;
             // 
             // Column1
@@ -1343,7 +1342,6 @@
             this.Groupsub2.Controls.Add(this.subVendorAddNew_btn);
             this.Groupsub2.Controls.Add(this.subVendorDelete_btn);
             this.Groupsub2.Controls.Add(this.label27);
-            this.Groupsub2.Controls.Add(this.subVendorUpdate_btn);
             this.Groupsub2.Controls.Add(this.subVendorNote_txt);
             this.Groupsub2.Controls.Add(this.subVendorSave_btn);
             this.Groupsub2.Controls.Add(this.label22);
@@ -1358,7 +1356,7 @@
             this.Groupsub2.Controls.Add(this.subVendorPerson_txt);
             this.Groupsub2.Location = new System.Drawing.Point(3, 3);
             this.Groupsub2.Name = "Groupsub2";
-            this.Groupsub2.Size = new System.Drawing.Size(665, 312);
+            this.Groupsub2.Size = new System.Drawing.Size(665, 304);
             this.Groupsub2.TabIndex = 0;
             this.Groupsub2.TabStop = false;
             // 
@@ -1375,7 +1373,7 @@
             // 
             // subVendorDelete_btn
             // 
-            this.subVendorDelete_btn.Location = new System.Drawing.Point(435, 154);
+            this.subVendorDelete_btn.Location = new System.Drawing.Point(435, 117);
             this.subVendorDelete_btn.Margin = new System.Windows.Forms.Padding(7, 11, 7, 11);
             this.subVendorDelete_btn.Name = "subVendorDelete_btn";
             this.subVendorDelete_btn.Size = new System.Drawing.Size(150, 30);
@@ -1393,17 +1391,6 @@
             this.label27.Size = new System.Drawing.Size(37, 12);
             this.label27.TabIndex = 50;
             this.label27.Text = "기타 :";
-            // 
-            // subVendorUpdate_btn
-            // 
-            this.subVendorUpdate_btn.Location = new System.Drawing.Point(435, 116);
-            this.subVendorUpdate_btn.Margin = new System.Windows.Forms.Padding(7, 11, 7, 11);
-            this.subVendorUpdate_btn.Name = "subVendorUpdate_btn";
-            this.subVendorUpdate_btn.Size = new System.Drawing.Size(150, 30);
-            this.subVendorUpdate_btn.TabIndex = 48;
-            this.subVendorUpdate_btn.Text = "Update";
-            this.subVendorUpdate_btn.UseVisualStyleBackColor = true;
-            this.subVendorUpdate_btn.Click += new System.EventHandler(this.subVendorUpdate_btn_Click);
             // 
             // subVendorNote_txt
             // 
@@ -1807,7 +1794,6 @@
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.Button subVendorDelete_btn;
-        private System.Windows.Forms.Button subVendorUpdate_btn;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel2;
